@@ -52,17 +52,8 @@ class PostController extends Controller
             Image::make($image)->resize(800, 600)->save($location);
             $post->image = $filename;
         }
-        try {
-            $post->save();
-        }catch (\Exception $exception) {
-            dd($exception->getMessage());
-            die;
-        }
 
-//        $post->save();
-//
-//        dd($post);
-        die('end');
+        $post->save();
 
         Session::flash('success', 'Dodano ogłoszenie');
         return redirect('/post');

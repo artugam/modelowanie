@@ -32,11 +32,12 @@ class PostControllerTest extends TestCase
      */
     public function testStore()
     {
-        $category = Category::create([
-            'name' => 'CategoryForPost'
-        ]);
-
         $admin = User::find(1);
+        $category = new Category;
+        $category->name = 'CategoryForPost';
+        $category->user_id = $admin->id;
+        $category->save();
+
         $data = [
             'title' => 'Post1',
             'body' => 'body1',
@@ -46,9 +47,9 @@ class PostControllerTest extends TestCase
 
         $response = $this->actingAs($admin)->call('POST', '/post', $data, [], []);
         $response->assertStatus(302);
-        $response->assertRedirect('/post'); // /post?
-//        $this->assertTrue(session('success') == 'Dodano ogłoszenie');
-//        $this->assertNotEmpty(Post::where('title', 'Post1'));
+        $response->assertRedirect('/post');
+        $this->assertTrue(session('success') == 'Dodano ogłoszenie');
+        $this->assertNotEmpty(Post::where('title', 'Post1'));
     }
 }
 
