@@ -35,7 +35,7 @@ class CommentController extends Controller
         }
         
         $comment->delete();
-        Session::flash('success', 'Usunięto ogłoszenie');
+        Session::flash('success', 'Usunięto komentarz');
         return redirect()->back();
     }
     

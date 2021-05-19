@@ -52,9 +52,7 @@
                                     </h3>
                                   </div>
                                   <div class="panel-body">
-                                    {{ $post->body }}
-                                    <br />
-                                    Kategoria: <div class="badge">{{ $post->category->name }}</div>
+                                      <h3>Oferty</h3>
                                     
                                     @foreach ($post->offers as $offer)
                                         

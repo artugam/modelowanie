@@ -36,42 +36,7 @@
                     {{ $post->category->name }}
                 </div>
               </div>
-<!--              <div class="panel-footer" data-postid="{{ $post->id }}">
-                  @if (Auth::check())
-                      @php
-                          $i = Auth::user()->likes()->count();
-                          $c = 1;
-                          $likeCount = $post->likes()->where('like', '=', true)->count();
-                          $dislikeCount = $post->likes()->where('like', '=', false)->count();
-                      @endphp
-                      @foreach (Auth::user()->likes as $like)
-                          @if ($like->post_id == $post->id)
-                              @if ($like->like)
-                                  <a href="#" class="btn btn-link like active-like">Zapisz post <span class="badge">{{ $likeCount }}</span></a>
-                                  <a href="#" class="btn btn-link like">Usuń z zapisanych <span class="badge">{{ $dislikeCount }}</span></a>
-                              @else
-                                  <a href="#" class="btn btn-link like">Zapisz post <span class="badge">{{ $likeCount }}</span></a>
-                                  <a href="#" class="btn btn-link like active-like">Usuń z zapisanych <span class="badge">{{ $dislikeCount }}</span></a>
-                              @endif
-                              @break
-                          @elseif ($i == $c)
-                              <a href="#" class="btn btn-link like">Zapisz post <span class="badge">{{ $likeCount }}</span></a>
-                              <a href="#" class="btn btn-link like">Usuń z zapisanych <span class="badge">{{ $dislikeCount }}</span></a>
-                          @endif
-                          @php
-                              $c++;
-                          @endphp
-                      @endforeach
-                      @if ($i == 0)
-                          <a href="#" class="btn btn-link like">Zapisz post <span class="badge">{{ $likeCount }}</span></a>
-                          <a href="#" class="btn btn-link like">Usuń z zapisanych <span class="badge">{{ $dislikeCount }}</span></a>
-                      @endif
-                  @else
-                      <a href="{{ url('login') }}" class="btn btn-link">Zapisz post <span class="badge">{{ $likeCount }}</span></a>
-                      <a href="{{ url('login') }}" class="btn btn-link">Usuń z zapisanych <span class="badge">{{ $dislikeCount }}</span></a>
-                  @endif
-                  <a href="#" class="btn btn-link">Komentarze</a>
-              </div>-->
+
             </div>
             @foreach ($post->comments as $comment)
                 <div class="panel panel-default" style="margin: 0; border-radius: 0;">
@@ -82,9 +47,13 @@
                       <div class="col-sm-3 text-right">
                           <small>Autor {{ $comment->user->username }}
                               
-                              <a href="#" onclick="document.getElementById('delete').submit()">  X</a>
-                                                        {!! Form::open(['method' => 'DELETE', 'id' => 'delete', 'route' => ['post.delete', $post->id]]) !!}
+                              @if (Auth::user()->id == $comment->user_id) 
+            <a href="#" onclick="document.getElementById('deleteComment{{$comment->id}}').submit()">X</a>
+                                                        {!! Form::open(['method' => 'DELETE', 'id' => 'deleteComment' . $comment->id, 'route' => ['comment.delete', $comment->id]]) !!}
                                                         {!! Form::close() !!}
+                                
+                              
+                              @endif
                         
                                                         
                           </small>
