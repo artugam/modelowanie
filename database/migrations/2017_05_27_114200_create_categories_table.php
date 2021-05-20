@@ -19,6 +19,19 @@ class CreateCategoriesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
+		
+		DB::table('categories')->insert([
+		'user_id' => '1',
+		'name' => 'Motoryzacja',
+		]);
+		DB::table('categories')->insert([
+		'user_id' => '1',
+		'name' => 'Moda',
+		]);
+		DB::table('categories')->insert([
+		'user_id' => '1',
+		'name' => 'Mieszkania',
+		]);
     }
 
     /**

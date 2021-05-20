@@ -12,7 +12,7 @@ class OfferController extends Controller
     public function index(Request $request) {
         $this->validate($request, [
             'post_id' => 'exists:posts,id|numeric',
-            'price' => 'required',
+            'price' => 'required|numeric',
             
         ]);
         $offer = new Offer;
@@ -32,7 +32,7 @@ class OfferController extends Controller
     {
         $this->validate($request, [
             'post_id' => 'exists:posts,id|numeric',
-            'price' => 'required',
+            'price' => 'required|numeric',
         ]);
         $offer->user_id = Auth::user()->id;
         $offer->post_id = $request->post_id;
