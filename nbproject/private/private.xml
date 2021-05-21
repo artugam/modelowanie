@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/a/SocialMedia-master/resources/views/home.blade.php</file>
-            <file>file:/C:/xampp/htdocs/a/SocialMedia-master/app/Http/Controllers/CommentController.php</file>
-            <file>file:/C:/xampp/htdocs/a/SocialMedia-master/resources/views/post/show.blade.php</file>
-            <file>file:/C:/xampp/htdocs/a/SocialMedia-master/resources/views/category/index.blade.php</file>
+            <file>file:/C:/Users/damia/Documents/NetBeansProjects/modelowanie2/resources/views/home.blade.php</file>
+            <file>file:/C:/Users/damia/Documents/NetBeansProjects/modelowanie2/resources/views/welcome.blade.php</file>
+            <file>file:/C:/Users/damia/Documents/NetBeansProjects/modelowanie2/storage/framework/views/d1037189e9d382b75b14e1953995532dbd735aa2.php</file>
+            <file>file:/C:/Users/damia/Documents/NetBeansProjects/modelowanie2/resources/views/post/show.blade.php</file>
+            <file>file:/C:/Users/damia/Documents/NetBeansProjects/modelowanie2/app/Http/Controllers/CommentController.php</file>
         </group>
     </open-files>
 </project-private>

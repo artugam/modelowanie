@@ -26,9 +26,11 @@
                                     <li><a href="{{ route('post.show', [$post->id]) }}">Show Post</a></li>
                                     <li><a href="{{ route('post.edit', [$post->id]) }}">Edit Post</a></li>
                                     <li>
+                                        @if (Auth::user()->id == $post->user_id) 
                                         <a href="#" onclick="document.getElementById('delete').submit()">Delete Post</a>
                                         {!! Form::open(['method' => 'DELETE', 'id' => 'delete', 'route' => ['post.delete', $post->id]]) !!}
                                         {!! Form::close() !!}
+                                        @endif
                                     </li>
                                 </ul>
                             </div>
@@ -42,37 +44,6 @@
                     @endif
                     <br />
                     Category: <div class="badge">{{ $post->category->name }}</div>
-                  </div>
-                  <div class="panel-footer" data-postid="{{ $post->id }}">
-                      @php
-                          $i = Auth::user()->likes()->count();
-                          $c = 1;
-                          $likeCount = $post->likes()->where('like', '=', true)->count();
-                          $dislikeCount = $post->likes()->where('like', '=', false)->count();
-                      @endphp
-                      @foreach (Auth::user()->likes as $like)
-                          @if ($like->post_id == $post->id)
-                              @if ($like->like)
-                                  <a href="#" class="btn btn-link like active-like">Like <span class="badge">{{ $likeCount }}</span></a>
-                                  <a href="#" class="btn btn-link like">Dislike <span class="badge">{{ $dislikeCount }}</span></a>
-                              @else
-                                  <a href="#" class="btn btn-link like">Like <span class="badge">{{ $likeCount }}</span></a>
-                                  <a href="#" class="btn btn-link like active-like">Dislike <span class="badge">{{ $dislikeCount }}</span></a>
-                              @endif
-                              @break
-                          @elseif ($i == $c)
-                              <a href="#" class="btn btn-link like">Like <span class="badge">{{ $likeCount }}</span></a>
-                              <a href="#" class="btn btn-link like">Dislike <span class="badge">{{ $dislikeCount }}</span></a>
-                          @endif
-                          @php
-                              $c++;
-                          @endphp
-                      @endforeach
-                      @if ($i == 0)
-                          <a href="#" class="btn btn-link like">Like <span class="badge">{{ $likeCount }}</span></a>
-                          <a href="#" class="btn btn-link like">Dislike <span class="badge">{{ $dislikeCount }}</span></a>
-                      @endif
-                      <a href="{{ route('post.show', [$post->id]) }}" class="btn btn-link">Comment</a>
                   </div>
                 </div>
             @endforeach
