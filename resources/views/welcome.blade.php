@@ -6,15 +6,22 @@
     
     <div class="container">
         <div class="jumbotron">
-            <h1>Miasi</h1>
+            <h1 class="text-center">Serwis ogłoszeniowy</h1>
         </div>
-        <div class="col-sm-9">
+         <div class="text-center">
+            @foreach ($categories as $category)
+                <a href="{{ route('category.showAll', [$category->name]) }}" class="badge">{{ $category->name }}</a>
+                @endforeach
+        </div> <br/>
+     
+        <div class="col-sm-9" >
+ 
            @foreach ($posts as $post)
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Autor <a href="{{route('user.show', $post->user) }}" >{{ $post->user['username'] }} </a>
-                        {{ $post->title }}
+                    <h3 class="panel-title" style="color:white;">
+                        Autor:  <a href="{{route('user.show', $post->user) }}" ><b>{{ $post->user['username'] }}</b> </a>
+                        Tytuł: <b >{{ $post->title }}</b>
                         @if ($post->friends()->count() > 0)
                             <small>
                                 with
@@ -39,12 +46,16 @@
                                 </ul>
                             </div>-->
                             <div class="pull-right">
-                            <a href="{{ route('post.show', [$post->id]) }}">Zobacz post</a>
+                                <a href="{{ route('post.show', [$post->id]) }}"><b>Zobacz post</b></a>
                         </div>
                     </h3>
+                      
                   </div>
+                    
                   <div class="panel-body">
+                      <h5 style=color:black;><b>Treść ogłoszenia:</b></h5> 
                     {{ $post->body }}
+                    
                     @if ($post->image != null)
                         <img src="/images/{{ $post->image }}" alt="Image" width="100%" height="600">
                     @endif
@@ -59,11 +70,7 @@
             @endforeach
         </div>
     
-        <div class="col-sm-3">
-            @foreach ($categories as $category)
-                <a href="{{ route('category.showAll', [$category->name]) }}" class="badge">{{ $category->name }}</a>
-            @endforeach
-        </div>
+       
     </div>
     <script type="text/javascript">
         $('.select2-class').select2();
