@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="container">
-        <div class="col-sm-6 col-sm-offset-3">
+        <div class="col-sm-8 col-sm-offset-2">
             @foreach ($posts as $post)
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Created by {{ $post->user->username }}, {{ $post->title }},
+                    <h3 class="panel-title" style="color:white;">
+                        Utworzone przez: <b>{{ $post->user->username }}</b>, Tytuł: <b>{{ $post->title }}</b>
                         @if ($post->friends()->count() > 0)
                             <small>
                                 with
@@ -24,7 +24,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{ route('post.show', [$post->id]) }}">Show Post</a></li>
-                                    <li><a href="{{ route('post.edit', [$post->id]) }}">Edit Post</a></li>
+                                    <!--<li><a href="{{ route('post.edit', [$post->id]) }}">Edit Post</a></li> -->
                                     <li>
                                         @if (Auth::user()->id == $post->user_id) 
                                         <a href="#" onclick="document.getElementById('delete').submit()">Delete Post</a>
@@ -43,7 +43,7 @@
                         <img src="/images/{{ $post->image }}" alt="Image" width="100%" height="600">
                     @endif
                     <br />
-                    Category: <div class="badge">{{ $post->category->name }}</div>
+                    Kategoria: <div class="badge">{{ $post->category->name }}</div>
                   </div>
                 </div>
             @endforeach
