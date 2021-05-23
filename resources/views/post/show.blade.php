@@ -11,8 +11,8 @@
                       @endif
             <div class="panel panel-default" style="margin: 0; border-radius: 0;">
               <div class="panel-heading">
-                <h3 class="panel-title">
-                    {{ $post->title }},
+                <h3 style="color:white;" class="panel-title">
+                    {{ $post->title }}
                     @if ($post->friends()->count() > 0)
                         <small>
                             with
@@ -22,7 +22,7 @@
                         </small>
                     @endif
                     <div class="pull-right">
-                        <a href="{{ url('/post') }}">Ogłoszenia</a>
+                        <a href="{{ url('/post') }}"><b>Ogłoszenia</b></a>
                     </div>
                 </h3>
               </div>
@@ -45,10 +45,10 @@
                           {{ $comment->comment }}
                       </div>
                       <div class="col-sm-3 text-right">
-                          <small>Autor {{ $comment->user->username }}
+                          <small>Autor: <b> {{ $comment->user->username }} </b>
                               
                               @if (Auth::user()->id == $comment->user_id) 
-            <a href="#" onclick="document.getElementById('deleteComment{{$comment->id}}').submit()">X</a>
+                              <a style="white-space:pre-wrap; text-decoration: none" href="#" onclick="document.getElementById('deleteComment{{$comment->id}}').submit()"><b>   X</b></a>
                                                         {!! Form::open(['method' => 'DELETE', 'id' => 'deleteComment' . $comment->id, 'route' => ['comment.delete', $comment->id]]) !!}
                                                         {!! Form::close() !!}
                                 
@@ -69,8 +69,8 @@
                 
                     <div>
                       <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active btn-primary" style="background-color: #262525;"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Dodaj komentarz</a></li>
-                        <li role="presentation" class="btn-primary" style="background-color: #262525;"><a href="#join" aria-controls="posts" role="tab" data-toggle="tab">Złóż ofertę</a></li>
+                          <li role="presentation" class="active btn-primary" style="background-color: #262525;"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab"><b>Dodaj komentarz</b></a></li>
+                          <li role="presentation" class="btn-primary" style="background-color: #262525;"><a href="#join" aria-controls="posts" role="tab" data-toggle="tab"><b>Złóż ofertę</b></a></li>
                       </ul>
      
                       <div class="tab-content">

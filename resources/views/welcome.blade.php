@@ -14,7 +14,7 @@
                 @endforeach
         </div> <br/>
      
-        <div class="col-sm-9" >
+        <div class="col-sm-8 col-sm-offset-2" >
  
            @foreach ($posts as $post)
                 <div class="panel panel-default">

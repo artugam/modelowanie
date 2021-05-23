@@ -6,9 +6,9 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">
+                    <h3 style="color:white;" class="panel-title">
                         <img src="{{ $user->profile_picture }}" alt="">
-                        {{ $user->username }}
+                        <b> {{ $user->username }}</b>
                         <div class="pull-right" data-friendid="{{ $user->id }}">
                             @if (Auth::check())
                                 @php
@@ -17,20 +17,20 @@
                                 @endphp
                                 @foreach (Auth::user()->friends as $user_1)
                                     @if ($user_1->user2->id == $user->id)
-                                        <a href="#" class="btn btn-link remove-friend">Remove Friend</a>
+                                    <a href="#" class="btn-link" ><b>Remove Friend</b></a>
                                         @break
                                     @elseif ($i == $c)
-                                        <a href="#" class="btn btn-link friend">Add Friend</a>
+                                    <a href="#" class="btn-link"><b>Add Friend</b></a>
                                     @endif
                                     @php
                                         $c++;
                                     @endphp
                                 @endforeach
                                 @if ($i == 0)
-                                    <a href="#" class="btn btn-link friend">Add Friend</a>
+                                <a href="#" class="btn-link"><b>Add Friend</b></a>
                                 @endif
                             @endif
-                            <a href="{{ route('friend.show', $user->id) }}" class="btn btn-link">View Friends</a>
+                            <a href="{{ route('friend.show', $user->id) }}" class="btn-link"><b>View Friends</b></a>
                         </div>
                     </h3>
                 </div>
@@ -46,8 +46,8 @@
                             @foreach ($user->posts as $post)
                                 <div class="panel panel-default">
                                   <div class="panel-heading">
-                                    <h3 class="panel-title">
-                                        {{ $post->title }}
+                                    <h3 style="color:white;" class="panel-title">
+                                        <b> {{ $post->title }} </b>
                                         <div class="pull-right">
                                             <div class="dropdown">
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

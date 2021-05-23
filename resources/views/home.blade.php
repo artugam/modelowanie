@@ -6,11 +6,11 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">
+                    <h3 style="color:white;" class="panel-title">
                         <!--<img src="{{ Auth::user()->profile_picture }}" alt="">-->
-                        Witaj {{ Auth::user()->username }}
+                        Witaj<b> {{ Auth::user()->username }} </b>
                         <div class="pull-right">
-                            <a href="{{ route('friend.show', Auth::user()->id) }}">Znajomi</a>
+                            <a href="{{ route('friend.show', Auth::user()->id) }}"><b>Znajomi</b></a>
                         </div>
                     </h3>
                 </div>
@@ -28,8 +28,8 @@
                             @foreach (Auth::user()->posts as $post)
                                 <div class="panel panel-default">
                                   <div class="panel-heading">
-                                    <h3 class="panel-title">
-                                        {{ $post->title }}
+                                    <h3 style="color:white;" class="panel-title">
+                                        Tytuł:<b> {{ $post->title }} </b>
                                         <div class="pull-right">
                                             <div class="dropdown">
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
