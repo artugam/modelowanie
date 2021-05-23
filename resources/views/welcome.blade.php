@@ -20,7 +20,8 @@
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h3 class="panel-title" style="color:white;">
-                        Autor:  <a href="{{route('user.show', $post->user) }}" ><b>{{ $post->user['username'] }}</b> </a>
+{{--                        Autor:  <a href="{{route('user.show', $post->user) }}" ><b>{{ $post->user['username'] }}</b> </a>--}}
+                        Autor:  <b>{{ $post->user['username'] }}</b>
                         Tytuł: <b >{{ $post->title }}</b>
                         @if ($post->friends()->count() > 0)
                             <small>

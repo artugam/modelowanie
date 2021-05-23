@@ -18,7 +18,7 @@ class HomeControllerTest extends TestCase
         $admin = User::find(1);
 
         $response = $this->actingAs($admin)->get('/home');
-        $response->assertStatus(500);
+        $response->assertStatus(200);
     }
 
     /**

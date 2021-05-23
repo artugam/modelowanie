@@ -17,9 +17,7 @@ class CategoryControllerTest extends TestCase
     {
         $admin = User::find(1);
 
-        $response = $this->actingAs($admin)->get('/category', [
-            'name' => 'TestCategory1'
-        ]);
+        $response = $this->actingAs($admin)->get('/category');
         $response->assertViewIs('category.index');
         $response->assertViewHas('categories');
     }
