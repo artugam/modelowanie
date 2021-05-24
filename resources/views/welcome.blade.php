@@ -63,7 +63,8 @@
                         <br />
                         Kategoria: <div class="badge">{{ $post->category['name'] }}</div>
                         <br />
-                        Miasto: <div class="badge">{{ $post->city }}</div>
+                        Miasto: <div class="badge">{{ $post->city }}</div><br />
+                        Data dodania: <div class="badge">{{ $post->created_at }}</div>
                     </div>
 
 
@@ -117,7 +118,8 @@
                     <br />
                     Kategoria: <div class="badge">{{ $post->category['name'] }}</div>
                     <br />
-                    Miasto: <div class="badge">{{ $post->city }}</div>
+                    Miasto: <div class="badge">{{ $post->city }}</div><br />
+                    Data dodania: <div class="badge">{{ $post->created_at }}</div>
                   </div>
                     
 
