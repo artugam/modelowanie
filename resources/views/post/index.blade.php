@@ -43,6 +43,11 @@
                                 <small class="text-danger">{{ $errors->first('city') }}</small>
                             @endif
                         </div>
+                        <div>
+                            <input type="checkbox" id="scales" name="promoted"
+                                   checked>
+                            <label for="scales">Wyróżnione ogłoszenie</label>
+                        </div>
 <!--                        <div class="form-group">
                             <select class="form-control select2-class" name="tags[]" multiple>
                                 @foreach (Auth::user()->friends as $friend)

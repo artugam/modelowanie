@@ -17,9 +17,12 @@ use App\Category;
 */
 
 Route::get('/', function () {
-    $posts = Post::all()->sortByDesc('id');
+    $posts = Post::query()->where(function ($query) {
+        $query->where('promoted', '=', 1)->whereRaw('DATE_ADD(CURRENT_DATE(), INTERVAL 7 DAY) < CURRENT_DATE()');
+    })->orWhere('promoted', '=', 0)->get()->sortByDesc('id');
+    $promotedPosts = Post::query()->where('promoted', '=', 1)->whereRaw('DATE_ADD(CURRENT_DATE(), INTERVAL 7 DAY) >= CURRENT_DATE()')->get()->sortByDesc('id');
     $categories = Category::all();
-    return view('welcome')->withPosts($posts)->withCategories($categories);
+    return view('welcome')->withPosts($posts)->withPromoteds($promotedPosts)->withCategories($categories);
 });
 
 Auth::routes();
