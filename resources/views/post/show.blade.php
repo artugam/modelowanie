@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="col-sm-6 col-sm-offset-3">
+        <div class="col-sm-8 col-sm-offset-2">
             @if (Session::has('success'))
                           <div class="alert alert-success">
                               <a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -68,9 +68,9 @@
             <div class="panel-body">
                 
                     <div>
-                      <ul class="nav nav-tabs" role="tablist">
-                          <li role="presentation" class="active btn-primary" style="background-color: #262525;"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab"><b>Dodaj komentarz</b></a></li>
-                          <li role="presentation" class="btn-primary" style="background-color: #262525;"><a href="#join" aria-controls="posts" role="tab" data-toggle="tab"><b>Złóż ofertę</b></a></li>
+                      <ul class="nav nav-tabs" role="tablist" >
+                          <li class="active btn-primary" style="background-color: #36454f;"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab"><b>Dodaj komentarz</b></a></li>
+                          <li class="btn-primary" style="background-color: #36454f;"><a href="#join" aria-controls="posts" role="tab" data-toggle="tab"><b>Złóż ofertę</b></a></li>
                       </ul>
      
                       <div class="tab-content">

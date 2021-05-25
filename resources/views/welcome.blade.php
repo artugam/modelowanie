@@ -13,7 +13,7 @@
                 <a href="{{ route('category.showAll', [$category->name]) }}" class="badge">{{ $category->name }}</a>
                 @endforeach
         </div> <br/>
-     
+      
         <div class="col-sm-8 col-sm-offset-2" >
 
             @foreach ($promoteds as $post)

@@ -44,8 +44,7 @@
                             @endif
                         </div>
                         <div>
-                            <input type="checkbox" id="scales" name="promoted"
-                                   checked>
+                            <input type="checkbox" id="scales" name="promoted">
                             <label for="scales">Wyróżnione ogłoszenie</label>
                         </div>
 <!--                        <div class="form-group">
